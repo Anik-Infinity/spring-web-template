@@ -15,7 +15,6 @@ spring:
             platform: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
-
 application:
   security:
     jwt:
@@ -23,3 +22,8 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+  exception:
+    trace: true
+server:
+  error:
+    include-stacktrace: ALWAYS
