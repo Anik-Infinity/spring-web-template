@@ -1,9 +1,9 @@
 package com.anik.app.core;
 
-import com.anik.app.common.dto.UserResponseDTO;
-import com.anik.app.common.exception.ResourceNotFoundException;
-import com.anik.app.common.response.contract.ApiResponse;
-import com.anik.app.common.response.success.ResponseUtils;
+import com.anik.app.dto.UserResponseDTO;
+import com.anik.app.exception.ResourceNotFoundException;
+import com.anik.app.response.contract.ApiResponse;
+import com.anik.app.response.success.ResponseUtils;
 import com.github.javafaker.Faker;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
