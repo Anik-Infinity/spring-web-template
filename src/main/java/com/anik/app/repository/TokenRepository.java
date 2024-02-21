@@ -1,6 +1,6 @@
 package com.anik.app.repository;
 
-import com.anik.app.entity.Token;
+import com.anik.app.entity.user.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,6 +16,6 @@ public interface TokenRepository extends JpaRepository<Token, UUID> {
       on t.user.id = u.id\s
       where u.id = :id and (t.expired = false or t.revoked = false)\s
       """)
-    List<Token> findAllValidTokenByUser(Integer id);
+    List<Token> findAllValidTokenByUser(UUID id);
     Optional<Token> findByToken(String token);
 }

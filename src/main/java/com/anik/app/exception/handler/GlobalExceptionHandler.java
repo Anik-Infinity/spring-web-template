@@ -1,5 +1,6 @@
 package com.anik.app.exception.handler;
 
+import com.anik.app.exception.ResourceNotFoundException;
 import com.anik.app.response.error.ErrorResponseUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
@@ -36,6 +37,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                              WebRequest request) {
         log.info("handleExceptionInternal invoked: {}", ex.getClass().getSimpleName());
         return ErrorResponseUtils.buildErrorResponse(ex, statusCode, ex.getMessage(), request);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+        return ErrorResponseUtils.buildErrorResponse(ex, HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler(Exception.class)

@@ -1,6 +1,5 @@
 package com.anik.app.response.success;
 
-import com.anik.app.dto.BaseDTO;
 import com.anik.app.response.contract.ApiResponse;
 import com.anik.app.response.contract.ApiSuccessResponse;
 import jakarta.annotation.Nullable;
@@ -21,21 +20,20 @@ final public class ResponseUtils implements ApiSuccessResponse {
         return buildResponseEntity(httpStatus, null, message);
     }
 
-    public static <T extends BaseDTO> ResponseEntity<ApiResponse> buildResponse(HttpStatus httpStatus,
-                                                                                T data,
-                                                                                String message) {
+    public static <T> ResponseEntity<ApiResponse> buildResponse(HttpStatus httpStatus,
+                                                                T data,
+                                                                String message) {
         return buildResponseEntity(httpStatus, data, message);
     }
 
-    public static <T extends BaseDTO> ResponseEntity<ApiResponse> buildPaginatedResponse(HttpStatus httpStatus,
-                                                                                         Page<T> page,
-                                                                                         String message) {
-        return buildPaginatedResponseEntity(httpStatus, page, message);
+    public static <T> ResponseEntity<ApiResponse> buildPaginatedResponse(Page<T> page,
+                                                                         String message) {
+        return buildPaginatedResponseEntity(page, message);
     }
 
-    private static <T extends BaseDTO> ResponseEntity<ApiResponse> buildResponseEntity(HttpStatus httpStatus,
-                                                                                       @Nullable T data,
-                                                                                       String message) {
+    private static <T> ResponseEntity<ApiResponse> buildResponseEntity(HttpStatus httpStatus,
+                                                                       @Nullable T data,
+                                                                       String message) {
         return ResponseEntity.status(httpStatus.value())
               .body(SuccessResponse.<T>builder()
                     .status(httpStatus.value())
@@ -46,13 +44,12 @@ final public class ResponseUtils implements ApiSuccessResponse {
 
     }
 
-    private static <T extends BaseDTO> ResponseEntity<ApiResponse> buildPaginatedResponseEntity(HttpStatus httpStatus,
-                                                                                                Page<T> page,
-                                                                                                String message) {
-        return ResponseEntity.status(httpStatus.value())
+    private static <T> ResponseEntity<ApiResponse> buildPaginatedResponseEntity(Page<T> page,
+                                                                                String message) {
+        return ResponseEntity.status(HttpStatus.OK.value())
               .body(PaginatedResponse.<T>builder()
-                    .status(httpStatus.value())
-                    .title(httpStatus.getReasonPhrase())
+                    .status(HttpStatus.OK.value())
+                    .title(HttpStatus.OK.getReasonPhrase())
                     .message(message)
                     .page(page.getPageable().getPageNumber())
                     .size(page.getSize())

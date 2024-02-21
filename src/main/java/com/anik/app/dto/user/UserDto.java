@@ -1,5 +1,6 @@
-package com.anik.app.dto;
+package com.anik.app.dto.user;
 
+import com.anik.app.dto.BaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -15,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserResponseDTO extends BaseDTO {
+public class UserDto extends BaseDto {
     @NotNull
     private String firstName;
     private String lastName;

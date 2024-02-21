@@ -18,11 +18,12 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode(of = "id")
 @SuperBuilder(toBuilder = true)
-public class BaseDTO {
+public class BaseDto {
     private UUID id;
     private Long version;
     private Instant createdAt;
     private Instant updatedAt;
     private UUID createdBy;
     private UUID updatedBy;
+    private boolean active;
 }
