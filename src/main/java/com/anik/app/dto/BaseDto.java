@@ -1,5 +1,6 @@
 package com.anik.app.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode(of = "id")
 @SuperBuilder(toBuilder = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseDto {
     private UUID id;
     private Long version;
@@ -25,5 +27,5 @@ public class BaseDto {
     private Instant updatedAt;
     private UUID createdBy;
     private UUID updatedBy;
-    private boolean active;
+    private Boolean active;
 }

@@ -1,6 +1,5 @@
 package com.anik.app.entity;
 
-import com.anik.app.entity.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -41,23 +40,11 @@ public abstract class BaseEntity {
 
     @Basic
     @Column(nullable = false, updatable = false)
-//    @CreatedDate
     private Instant createdAt;
 
     @Basic
     @Column(nullable = false)
-//    @LastModifiedDate
     private Instant updatedAt;
-
-    /*@Basic
-    @Column(nullable = false)
-    @CreatedBy
-    private UUID createdBy;*/
-
-    /*@Basic
-    @Column(nullable = false)
-    @LastModifiedBy
-    private UUID updatedBy;*/
 
     @Builder.Default
     @Column(nullable = false)

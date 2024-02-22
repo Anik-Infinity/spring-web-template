@@ -24,8 +24,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                   name = "Licence name",
                   url = "https://some-url.com"
             ),
-            termsOfService = "Terms of service"
-      ),
+            termsOfService = "Terms of service"),
       servers = {
             @Server(
                   description = "Local ENV",
@@ -34,13 +33,11 @@ import io.swagger.v3.oas.annotations.servers.Server;
             @Server(
                   description = "PROD ENV",
                   url = "https://github.com/Anik-Infinity"
-            )
-      },
+            )},
       security = {
             @SecurityRequirement(
                   name = "bearerAuth"
-            )
-      }
+            )}
 )
 @SecurityScheme(
       name = "bearerAuth",
@@ -48,8 +45,6 @@ import io.swagger.v3.oas.annotations.servers.Server;
       scheme = "bearer",
       type = SecuritySchemeType.HTTP,
       bearerFormat = "JWT",
-      in = SecuritySchemeIn.HEADER
-)
+      in = SecuritySchemeIn.HEADER)
 public class OpenApiConfig {
 }
-

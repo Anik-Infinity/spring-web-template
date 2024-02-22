@@ -1,7 +1,5 @@
 package com.anik.app.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/management")
-@Tag(name = "Management")
+@Tag(name = "management-demo-controller", description = "accessible for ADMIN and MANAGER. restricted for USER")
 public class ManagementController {
     @GetMapping
     public String get() {

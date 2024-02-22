@@ -11,14 +11,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-//@EnableJpaAuditing(auditorAwareRef = "databaseAuditing")
 @Slf4j
 public class SpringWebTemplateApplication implements CommandLineRunner {
 	private final AuthorRepository authorRepository;

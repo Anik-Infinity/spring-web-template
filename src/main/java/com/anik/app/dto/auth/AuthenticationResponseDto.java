@@ -1,16 +1,25 @@
 package com.anik.app.dto.auth;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.anik.app.dto.BaseDto;
+import com.anik.app.enums.Role;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
+@SuperBuilder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponseDto {
-  private String accessToken;
-  private String refreshToken;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class AuthenticationResponseDto extends BaseDto {
+    private String firstName;
+    private String lastName;
+    private String email;
+    private Role role;
+    private String accessToken;
+    private String refreshToken;
 }
